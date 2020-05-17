@@ -1,17 +1,14 @@
 package com.example.serviceimpl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.dao.UserDao;
 import com.example.model.User;
-import com.example.model.logbook;
-import com.example.service.service;
+import com.example.service.UserService;
 
 @Repository
-public class serviceImpl implements service{
+public class UserServiceImpl implements UserService{
 	
 	
 
@@ -31,17 +28,6 @@ public class serviceImpl implements service{
 		return userdao.findByUserNameAndPassword(userName, password);
 	}
 
-	@Override
-	public logbook saverecord(logbook record) {
-		// TODO Auto-generated method stub
-		return userdao.saverecord(record);
-	}
-
-	@Override
-	public List<logbook> getrecordlist() {
-		// TODO Auto-generated method stub
-		return userdao.getrecordlist();
-	}
 	
 
 }

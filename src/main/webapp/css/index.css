@@ -23,10 +23,20 @@ div.password{
 
 input[type=submit]{
 	margin-top:10px;
-	margin-left:40px;
+	margin-right:10px;
 	padding: 5px 25px;
+	background-color: #c0c0c0;
 }
 input[type=name] [type=password]{
 	  box-sizing: border-box;
   border: 3px solid #ccc;
 }
+a:link, a:visited {
+ 
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+

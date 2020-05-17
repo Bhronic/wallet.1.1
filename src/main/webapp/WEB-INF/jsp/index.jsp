@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/wallet1.1/src/main/webapp/WEB-INF/login.css">
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
 <meta charset="ISO-8859-1">
 <title>Login</title>
 </head>
@@ -29,6 +31,8 @@ Password
 <input type="password" name="password"></br></br>
 
 <input type="submit" value="login" name="login">
+
+<a href="registration">SignUp</a>
 </div>
 
 

@@ -3,15 +3,20 @@ package com.example.model;
 
 
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "USERS100")
+
 public class User {
 
+	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
@@ -23,6 +28,7 @@ public class User {
 	private String email;
 	
 	private String profession;
+	
 	
 	public String getEmail() {
 		return email;

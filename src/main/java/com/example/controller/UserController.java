@@ -3,9 +3,7 @@ package com.example.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import javax.servlet.http.HttpServletRequest;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +14,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.model.Logbook;
 import com.example.model.User;
-import com.example.model.logbook;
-import com.example.service.service;
+import com.example.service.LogbookService;
+import com.example.service.UserService;
 
 
 @Controller
-public class controller {
+public class UserController {
 	
 	@Autowired
-	private service user;
+	private UserService user;
+	
+	
 	@Autowired 
-	private service logbook;
+	private LogbookService logbook;
 
 	@RequestMapping("/index")
 	public @ResponseBody ModelAndView get_index() {
@@ -40,16 +41,15 @@ public class controller {
 		ModelAndView mv = null;
 		User us = new User();
 		us =  user.findByUserNameAndPassword(username, password);
+		List<Logbook> recordlist = new ArrayList<Logbook>();
+		recordlist=logbook.findByUser(username);
 	
-		
 		if(us!=null) {
-			List<logbook> recordlist = new ArrayList<logbook>();
-			recordlist=logbook.getrecordlist();
+			
 			mv = new ModelAndView("welcome");
 			mv.addObject("get_records", recordlist);
-			mv.addObject("login_message", "Welcome"+username);
+			mv.addObject("login_message", "Welcome "+username);
 			
-			System.out.print(recordlist);
 			System.out.print("in");
 		}else {
 			System.out.print("out");
@@ -93,29 +93,9 @@ public class controller {
 			return mv;
 		}
 		
-		@RequestMapping(value="/add")
-		public ModelAndView add_page() {
-			ModelAndView mv = new ModelAndView("add");
-			return mv;
-		}
-		
-		@RequestMapping(value="/addRecord")
-		public ModelAndView get_record(HttpServletRequest request, HttpServletResponse response)
-		{
-			String date = request.getParameter("date");
-			String payment = request.getParameter("payment");
-			String amount = request.getParameter("amount");
-			String description = request.getParameter("description");
-			logbook record = new logbook();
-			record.setDate(date);
-			record.setPayment(payment);
-			record.setAmount(amount);
-			record.setDescription(description);
-			
-			logbook.saverecord(record);
-			
-			ModelAndView mv = new ModelAndView("welcome");
-			mv.addObject("record_message","Record Saved Successfully...");
-			return mv;
-		}
+				
+				
+				
+				
+				
 }

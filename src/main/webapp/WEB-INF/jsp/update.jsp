@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
+    <!DOCTYPE html>
+    <html>
+    <head>
 <link rel="stylesheet" type="text/css" href="../css/add.css">
-<title>ADD</title>
-</head>
-<body>
-<form action="addRecord" method="post">
-<% String username = request.getParameter("username"); %>
+    <title>Update</title>
+    </head>
+    <body>
+    <form action="method_update" action="GET">
+    <% String id = request.getParameter("id"); %>
+    <input type="hidden" name="id" value=<%=id %>>
+    <% String username = request.getParameter("username"); %>
 <input type="hidden" name="username" value=<%=username %>>
 <div class="title">
-<h2>Enter your daily expense</h2></div>
+<h2>Update Record</h2></div>
 <div class="date">
 Date:<input type="date" name="date"><br></div>
 <div class="payment">
@@ -31,8 +32,8 @@ Description:<input type="text" size="15" name="description"><br>
 </div>
 <div class="submit">
 <input type="submit" value="save">
-<a href="welcome_page">Back</a>
+
 </div>
-</form>
-</body>
-</html>
+    </form>
+    </body>
+    </html>
