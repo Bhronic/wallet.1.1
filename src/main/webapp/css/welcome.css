@@ -1,0 +1,44 @@
+a:link, a:visited {
+  background-color: #800000;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+
+body{
+font-family:"Segoe UI",Arial,sans-serif;
+}
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align:centre;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ td,th {
+ text-align: centre;
+  padding:10px;
+}
+th{
+	font-size: 20px;
+	font-weight: normal;
+	background-color: black	;
+	color:white;
+}
+
+td{
+	background-color:#e4e4e4;
+}
+
+h1{
+	font-weight:normal;
+}

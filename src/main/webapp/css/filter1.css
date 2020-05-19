@@ -1,0 +1,32 @@
+body{
+font-family:"Segoe UI",Arial,sans-serif;
+}
+h1{
+	margin-left:450px;
+	font-weight:normal;
+}
+table, td, th {  
+margin-top:100px;
+  border: 1px solid #ddd;
+  text-align:centre;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ td,th {
+ text-align: centre;
+  padding:10px;
+}
+th{
+	font-size: 20px;
+	font-weight: normal;
+	background-color: black	;
+	color:white;
+}
+
+td{
+	background-color:#e4e4e4;
+}
