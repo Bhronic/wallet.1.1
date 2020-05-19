@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Logbook;
@@ -48,7 +49,7 @@ public class LogbookController{
 		
 		ModelAndView mv = new ModelAndView("welcome");
 		List<Logbook> recordlist = new ArrayList<Logbook>();
-		recordlist=logbook.findByUser(user);
+		recordlist=logbook.findByUserAndActive(user,record.getActive());
 		mv.addObject("get_records", recordlist);
 		mv.addObject("login_message", "Welcome "+user);
 		
@@ -82,7 +83,7 @@ public class LogbookController{
 			
 			logbook.saverecord(lg);
 			List<Logbook> recordlist = new ArrayList<Logbook>();
-			recordlist=logbook.findByUser(lg.getUser());
+			recordlist=logbook.findByUserAndActive(lg.getUser(),lg.getActive());
 			
 			ModelAndView mv=null;
 			if(lg.getId()!=null)
@@ -108,12 +109,13 @@ public class LogbookController{
 				lg.setDate(request.getParameter("date"));
 				lg.setAmount(request.getParameter("amount"));
 				lg.setPayment(request.getParameter("payment"));
-				lg.setDescription(request.getParameter("description"));
-				lg.setUser(request.getParameter("username"));
-				
-				logbook.deleterecord(lg);
+				lg.setDescription(request.getParameter("description")); 
+				lg.setUser(request.getParameter("username")); 
+				lg.setActive(1);
+				logbook.saverecord(lg);
+				lg.setActive(0);
 				List<Logbook> recordlist = new ArrayList<Logbook>();
-				recordlist=logbook.findByUser(lg.getUser());
+				recordlist=logbook.findByUserAndActive(lg.getUser(),lg.getActive());
 				
 				ModelAndView mv = new ModelAndView("welcome");
 				mv.addObject("get_records", recordlist);
@@ -121,5 +123,24 @@ public class LogbookController{
 				return mv;
 				
 			}
+			@RequestMapping(value="/filterrecords")
+			public ModelAndView get_filter()
+			{
+				ModelAndView mv= new ModelAndView("filter");
+				
+				return mv;
+			}
 			
+			@RequestMapping(value="/get_filter")
+			public ModelAndView filter_records(@RequestParam String date1,@RequestParam String date2,@RequestParam String user,Integer active) {
+				
+				Logbook lg = new Logbook();
+				List<Logbook> recordlist= new ArrayList<Logbook>();
+				lg.setActive(0);
+				active=lg.getActive();
+				recordlist= logbook.findByDateAndActive(date1, date2,user,active);
+				ModelAndView mv = new ModelAndView("filter1");
+				mv.addObject("record", recordlist);
+				return mv;
+			}
 }

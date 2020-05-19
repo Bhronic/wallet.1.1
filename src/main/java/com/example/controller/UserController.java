@@ -40,11 +40,15 @@ public class UserController {
 		
 		ModelAndView mv = null;
 		User us = new User();
+		Logbook lg = new Logbook();
 		us =  user.findByUserNameAndPassword(username, password);
 		List<Logbook> recordlist = new ArrayList<Logbook>();
-		recordlist=logbook.findByUser(username);
+		recordlist=logbook.findByUserAndActive(username,lg.getActive());
 	
-		if(us!=null) {
+		if(username.equalsIgnoreCase("Admin")&&password.equalsIgnoreCase("1234"))
+		{
+			 mv = new ModelAndView("admin");
+		}else if(us!=null) {
 			
 			mv = new ModelAndView("welcome");
 			mv.addObject("get_records", recordlist);

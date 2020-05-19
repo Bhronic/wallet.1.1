@@ -26,6 +26,18 @@ public class Logbook {
 	private String description;
 
 	private String user;
+	
+	private int active=0;
+	
+	
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+
 	public String getUser() {
 		return user;
 	}

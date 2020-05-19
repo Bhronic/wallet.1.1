@@ -11,28 +11,31 @@
 <form action="addRecord" method="post">
 <% String username = request.getParameter("username"); %>
 <input type="hidden" name="username" value=<%=username %>>
-<div class="title">
-<h2>Enter your daily expense</h2></div>
-<div class="date">
-Date:<input type="date" name="date"><br></div>
-<div class="payment">
-Payment Method: <select id="payment" name="payment">
+<table>
+
+<tr><th>Enter your daily expense</th></tr>
+<tr><td>
+Date:  <input type="date" name="date"></td></tr>
+<tr><td>
+Payment: <select id="payment" name="payment">
   <option value="cash">Cash</option>
   <option value="credit">Credit Card</option>
   <option value="debit">Debit Card</option>
   <option value="upi">UPI</option>
-</select><br>
-</div>
-<div class="amount">
+</select></td></tr>
+<tr><td>
+
 Amount: <input type="text" name="amount"><br>
-</div>
-<div class="description">
-Description:<input type="text" size="15" name="description"><br>
-</div>
-<div class="submit">
-<input type="submit" value="save">
-<a href="welcome_page">Back</a>
-</div>
+</td></tr>
+<tr><td>
+Description: <input type="text" size="15" name="description"><br>
+</td></tr>
+
+<tr><td>
+<input type="submit" value="SAVE">
+
+</td></tr>
+</table>
 </form>
 </body>
 </html>

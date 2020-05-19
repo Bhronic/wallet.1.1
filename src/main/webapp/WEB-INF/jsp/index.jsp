@@ -8,36 +8,38 @@
 <title>Login</title>
 </head>
 <body>
+${registration_message}
+<table border="1">
 <form action="validate" method="post">
-<input type="hidden" name="page" value="1">
-<div class="title">
-
-User Login
-
-</div>
+<tr><th>User Login</th></tr>
 </br></br>
-<div class="username">
+
+<tr><td>
 Username</br></br>
 
 <input type="name"  name="username"></br></br>
+</td>
+ </tr></br>
 
- </div></br>
-
-<div class="password"> 
+<tr>
+<td>
 
 Password
 </br></br>
 
 <input type="password" name="password"></br></br>
+</td>
+</tr>
 
+<tr><td>
 <input type="submit" value="login" name="login">
 
 <a href="registration">SignUp</a>
-</div>
 
-
-
-
+</td></tr>
 </form>
+</table>
+
+
 </body>
 </html>

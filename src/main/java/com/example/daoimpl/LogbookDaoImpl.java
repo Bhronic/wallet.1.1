@@ -24,7 +24,7 @@ public class LogbookDaoImpl implements LogbookDao {
 	public Logbook saverecord(Logbook record) {
 		
 			
-			return recordrepo.save(record);
+			return recordrepo.saveAndFlush(record);
 	
 			
 	}
@@ -34,15 +34,24 @@ public class LogbookDaoImpl implements LogbookDao {
 	@Override
 	public void deleterecord(Logbook record) {
 		// TODO Auto-generated method stub
-		 recordrepo.delete(record);
+		 record.setActive(1);
 	}
 
 
 
 	@Override
-	public List<Logbook> findByUser(String user) {
+	public List<Logbook> findByUserAndActive(String user,int active) {
+		 
+		return recordrepo.findByUserAndActive(user,active);
+		
+	}
+
+
+
+	@Override
+	public List<Logbook> findByDateAndActive(String date1, String date2,String user,Integer active) {
 		// TODO Auto-generated method stub
-		return recordrepo.findByUser(user);
+		return recordrepo.findByDateAndActive(date1, date2,user,active);
 	}
 
 

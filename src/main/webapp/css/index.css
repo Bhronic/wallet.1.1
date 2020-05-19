@@ -1,31 +1,40 @@
 body{
-	background-image:url("index.jpg");
+	background-image:url("../images/backgound1.jpg");
 	background-size: cover;
 	font-family:"Segoe UI",Arial,sans-serif;
 }
-div.title{
-	margin-top:120px ;
-	margin-left:465px;
-	font-size:40px;
-	font-family:"Segoe UI",Arial,sans-serif;
+
+table {  
+margin-top:40px;
+margin-left:400px;
+  border: 1px solid #ddd;
+  text-align: left;
+  background-color: #000000;
+}
+ td, th {  
+ font-weight:normal;
+ color:white;
+  border: 0px solid #ddd;
+  text-align: center;
+}
+th{
+	font-size:30px;
 }
 
-div.username{
-	
-	margin-left:480px;
+table {
+  border-collapse: collapse;
+  width: 30%;
 }
-div.password{
-	
-	
-	margin-left:480px;
-	
+
+th, td {
+  padding: 15px;
 }
 
 input[type=submit]{
 	margin-top:10px;
 	margin-right:10px;
 	padding: 5px 25px;
-	background-color: #c0c0c0;
+	background-color: white;
 }
 input[type=name] [type=password]{
 	  box-sizing: border-box;
