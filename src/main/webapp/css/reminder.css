@@ -1,0 +1,28 @@
+table,td,th{
+	border-collapse:collapse;
+	border: 1px solid #ddd;
+	padding:5px;
+	    border-collapse:separate;
+  
+    border-radius:6px;
+    -moz-border-radius:6px;
+}
+
+#create{
+	width:40%;
+	margin-top:-50px;
+	margin-left:350px;
+	padding:10px;	
+	
+}
+
+#list{
+	margin-left:0px;
+margin-top:-250px;
+width:20%;
+	
+}
+
+#save{
+	trxt-align:center;
+}

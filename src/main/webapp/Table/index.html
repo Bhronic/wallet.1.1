@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Table V03</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<table data-vertable="ver1">
+						<thead>
+							<tr class="row100 head">
+								<th class="column100 column1" data-column="column1">ID</th>
+								<th class="column100 column2" data-column="column2">Date</th>
+								<th class="column100 column3" data-column="column3">Payment</th>
+								<th class="column100 column4" data-column="column4">Amount</th>
+								<th class="column100 column5" data-column="column5">Description</th>
+								<th class="column100 column6" data-column="column6">Update</th>
+								<th class="column100 column7" data-column="column7">Delete</th>
+							
+							</tr>
+						</thead>
+						<tbody>
+						<c:forEach var="record"  items="${get_records}">
+							<tr class="row100">
+								<td class="column100 column1" data-column="column1">${record.id }</td>
+								<td class="column100 column2" data-column="column2">${record.date}</td>
+								<td class="column100 column3" data-column="column3">${record.payment }</td>
+								<td class="column100 column4" data-column="column4">${record.amount }</td>
+								<td class="column100 column5" data-column="column5">${record.description }</td>
+								<td class="column100 column6" data-column="column6"><a href="recorduptodate?username=<%=username%>&id=${record.id }">Update</a></td>
+								<td class="column100 column7" data-column="column7"><a href="deleterecord?username=<%=username%>&id=${record.id }&date=${record.date}&payment=${record.payment}&amount=${record.amount}&description=${record.description}">Delete</a></td>
+							
+							</tr>
+
+			</c:forEach>
+						</tbody>
+					</table>
+				</div>
+</div></div></div>
+				
+
+	<c:forEach var="record"  items="${get_records}">
+<tr><td>${record.id }</td><td>${record.date}</td><td>${record.payment }</td><td>${record.amount }</td><td>${record.description }</td><td><a href="recorduptodate?username=<%=username%>&id=${record.id }">Update</a></td><td><a href="deleterecord?username=<%=username%>&id=${record.id }&date=${record.date}&payment=${record.payment}&amount=${record.amount}&description=${record.description}">Delete</a></td></tr>
+
+</c:forEach>
+	
+
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

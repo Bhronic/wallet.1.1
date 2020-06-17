@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +27,8 @@ public class Logbook {
 	private String user;
 	
 	private int active=0;
+	
+	
 	
 	
 	public int getActive() {
@@ -85,7 +86,11 @@ public class Logbook {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-
 	
-}
+
+
+		
+		
+	}
+
+

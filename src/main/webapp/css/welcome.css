@@ -1,44 +1,243 @@
-a:link, a:visited {
-  background-color: #800000;
+body{
+	  font-family: Montserrat-Regular;
+	  background-color: #212529;
+	  
+}
+
+div.main{
+	margin-left:280px;
+	margin-top: -80px;
+}
+
+div.map{
+	margin-top:100px;
+	margin-left:-270px;
+}
+
+div.welcome{
+	margin-top:-50px;
+	text-align:center;
+}
+ a:link, a:visited {
+  background-color: #36304a;;
   color: white;
   padding: 4px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
 }
-
-a:hover, a:active {
-  background-color: red;
+ a:link, a:visited {
+  background-color: #36304a;;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
-
-body{
-font-family:"Segoe UI",Arial,sans-serif;
-}
-table, td, th {  
-  border: 1px solid #ddd;
-  text-align:centre;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
- td,th {
- text-align: centre;
-  padding:10px;
-}
-th{
-	font-size: 20px;
-	font-weight: normal;
-	background-color: black	;
+h1,h2{
+	font-weight:normal;
 	color:white;
 }
 
-td{
-	background-color:#e4e4e4;
+
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
 }
 
-h1{
-	font-weight:normal;
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url('../fonts/montserrat/Montserrat-Medium.ttf'); 
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+
+
+
+/* ------------------------------------ */
+div.input {
+  display: block;
+	outline: none;
+	border: none !important;
+	float:right;
+
+}
+.to{
+	color:white;
+}
+textarea {
+  display: block;
+  outline: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+/* ------------------------------------ */
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Table ]*/
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-table100 {
+  width: 100%;
+/*  min-height: 100vh;
+ /* background: #d1d1d1;*/
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+ /* padding: 33px 30px;*/
+}
+
+.wrap-table100 {
+  width:100%;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ Table ]*/
+table {
+  width: 100%;
+  background-color: #fff;
+}
+
+th, td {
+  font-weight: unset;
+  padding-right: 10px;
+}
+
+.column100 {
+  width: 130px;
+  padding-left: 25px;
+}
+
+.column100.column1 {
+  width: 265px;
+  padding-left: 42px;
+}
+
+.row100.head th {
+  padding-top: 24px;
+  padding-bottom: 20px;
+}
+
+.row100 td {
+  padding-top: 18px;
+ 
+}
+
+
+/*==================================================================
+[ Ver1 ]*/
+.table100.ver1 td {
+  font-family: Montserrat-Regular;
+  font-size: 14px;
+  color: #808080;
+  line-height: 1.4;
+}
+
+.table100.ver1 th {
+  font-family: Montserrat-Medium;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1.4;
+  text-transform: uppercase;
+
+  background-color: #36304a;
+}
+
+.table100.ver1 .row100:hover {
+  background-color: #f2f2f2;
+}
+
+.table100.ver1 .hov-column-ver1 {
+  background-color: #f2f2f2;
+}
+
+.table100.ver1 .hov-column-head-ver1 {
+  background-color: #484848 !important;
+}
+
+.table100.ver1 .row100 td:hover {
+  background-color: #6c7ae0;
+  color: #fff;
+}
+
+
+
+
+.notification .badge {
+  position: absolute;
+  top:0px;
+  right:;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+}
+
+
+
+#signout{
+	float:right;
+font-size:15px;
+background:black;
+}
+.info{
+	padding:0px;
+	margin-top:0px;
+	float:left;
+	font-size:5px;
+	color:white;
+}
+.dropdown-menu ,.dropdown-messages{
+	background:white;
+	
+	padding:10px;
+	font-size:20px;
+}
+.table{
+	margin-top:10px;
+	float:right;
+	width:100%;
+	padding:30px;
+}
+.expense{
+	color:white;
+	text-align:center;
+	
+
+}
+a.reminders{
+	color:white;
+	background:white;
 }

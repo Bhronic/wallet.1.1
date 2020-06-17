@@ -1,37 +1,36 @@
-body{
-	background-image:url("add.jpg");
-	background-size:cover;
-	font-family:"Segoe UI",Arial,sans-serif;
+.title,.label{
+	color:black;
 }
+table{
+	margin-top:-30px;
+	margin-left:350px;
+	width: 40%;
+	padding: 15px;
 
-input[type=submit]{
-	margin-top:10px;
-	margin-right:10px;
-	padding: 5px 25px;
-	background-color: white;
+	
 }
-table {  
-margin-top:100px;
-margin-left:350px;
-  border: 1px solid #ddd;
-  text-align: left;
-  background-color: #000000;
-}
- td, th {  
- font-weight:normal;
- color:white;
-  border: 0px solid #ddd;
-  text-align: center;
-}
-th{
-	font-size:30px;
-}
-
 table {
-  border-collapse: collapse;
-  width: 40%;
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;
 }
 
-th, td {
-  padding: 15px;
+td, th {
+		border: 0px solid #ddd;
+	padding:20px;
+  
+}
+
+th {
+	text-align:center;
+    background-color: ;
+    border-top: none;
+    font-size:20px;
+}
+
+#save{
+	font-size:15px;
+	text-align:center;
+	
 }

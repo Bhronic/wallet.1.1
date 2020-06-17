@@ -3,12 +3,9 @@ package com.example.model;
 
 
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
@@ -29,7 +26,25 @@ public class User {
 	
 	private String profession;
 	
+	private String question;
 	
+	private String answer;
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
 	public String getEmail() {
 		return email;
 	}
