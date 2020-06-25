@@ -108,7 +108,7 @@
   
  <a  id="main" href="report?username=<%=username%>">Monthly Report</a>
  
-		<div class="map">
+		<div class="map" style="margin-left:-550px;">
 		
 		
 		<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -124,6 +124,7 @@
 		</div>
 
 </div>
+<div class="form" style="margin-left:-30px;">
 	<form action="savereminder" method="GET">
 <input type="hidden" name="id" value="${id }">
 <table id="create">
@@ -145,5 +146,6 @@
 
 </table>
 </form>
+</div>
 </body>
 </html>

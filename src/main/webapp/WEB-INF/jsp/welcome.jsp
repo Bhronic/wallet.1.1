@@ -42,6 +42,26 @@
 	<link rel="stylesheet" type="text/css" href="../css/welcome.css">
 <meta charset="ISO-8859-1">
 <title>Welcome</title>
+
+<script>
+var x = "balance";
+ function availablebalance(){
+	 console.log("Method in");
+
+	 document.getElementById("balance").innerHTML = x;}
+
+	<!--LogbookDao logbook = new LogbookDaoImpl();
+	
+	var username = session.getAttribute("username");
+	var currentmonth = logbook.getCurrentmonth();
+	var totalexpenseincome = logbook.totalexpense(username, 0);
+	var totalincome= logbook.calculateincome("income", username, 0);
+	var expense = logbook.totalExpenseCrurrentMonth(username, 0, currentmonth);
+	var availablebalance = totalincome-(totalexpenseincome-totalincome);-->
+
+	 
+ </script>
+
 </head>
 <body>
 
@@ -53,7 +73,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span></button>
-				<p class="navbar-brand" href="#"><span>Wallet  </span>  Management</p>
+				<p class="navbar-brand" ><span>Wallet  </span>  Management</p>
 				<ul class="nav navbar-top-links navbar-right">
 					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
 						<em class="fa fa-lock"></em>
@@ -76,10 +96,10 @@
 					</a>
 						<ul class="dropdown-menu dropdown-alerts">
 							<li>
-									<h4>Reminders :- </h4></br>
+									<h4>Reminders :- </h4><br>
 									<c:forEach var="list" items="${bell }">
 									
-								<a class ="reminders" href="reminders">${list }</a></br>
+								<a class ="reminders" href="reminders">${list }</a><br>
 									</c:forEach>
 									
 							</li>
@@ -99,42 +119,30 @@
 
  <a  id="main" href="cards" >Manage Cards</a> <a href="reminders" class="notification"><span>Reminder</span><span class="badge">3</span></a>
  
-  <button  id="main" onclick="availablebalance()" style="background-color:white;">Available Balance</button	> 
+ <!--   <button   onclick="display()" style="background-color:white;">Available Balance</button	> -->
+ 
+ <a id ="main" href="balance">Available Balance</a>
   
   
  <a  id="main" href="report?username=<%=username%>">Monthly Report</a>
  </div>
  
  <script>
- function balance(){
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function(){
+ function display(){
+	
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	    	document.getElementById("balance").innerHTML = this.responseText;
+	     document.getElementById("balance").innerHTML = this.responseText;
 	    }
-	    xhttp.open("GET", "balance.jsp", true);
-	    xhttp.send(); 
+	  };
+	  xhttp.open("GET", "balance.jsp", true);
+	  xhttp.send();
 	}
  }
  </script>
- <script>
- function availablebalance(){
-	 var x = "balance";
-		document.getElementById("balance").innerHTML=x;
-
-	<!--LogbookDao logbook = new LogbookDaoImpl();
-	
-	var username = session.getAttribute("username");
-	var currentmonth = logbook.getCurrentmonth();
-	var totalexpenseincome = logbook.totalexpense(username, 0);
-	var totalincome= logbook.calculateincome("income", username, 0);
-	var expense = logbook.totalExpenseCrurrentMonth(username, 0, currentmonth);
-	var availablebalance = totalincome-(totalexpenseincome-totalincome);-->
-
-	 }
- </script>
-
-<h1 id="balance" style="color:white;"></h1>
+ 
+<h1 id="balance" style="color:white;"> </h1>
 
 
 		<div class="map">
@@ -167,7 +175,7 @@
 
 <h3>
 Total Expense is ${total_expense}  
-
+${available_balance }
 
 </h3>
 </div>
@@ -175,12 +183,12 @@ Total Expense is ${total_expense}
 </form>
 
 
-</br>
+<br>
 
-</br>	
-</br>
+<br>	
+<br>
 		
-		</div><!--/.row-->
+		
 	
 	
 	<script src="../lumino/js/jquery-1.11.1.min.js"></script>
@@ -198,7 +206,7 @@ Total Expense is ${total_expense}
 <input type="hidden" name="page" value="1">
 <div class="input"><input type="date" name="date1" value="DAte"> <span class="to">TO</span> <input type="date" name="date2"> <input type="submit" value="Search">
    </div>
- </form></br></br>
+ </form><br></br>
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
@@ -262,10 +270,10 @@ Total Expense is ${total_expense}
 <!--===============================================================================================-->
 	<script src="../Table/vendor/bootstrap/js/popper.js"></script>
 	<script src="../Table/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
+<!--===============================================================================================
 	<script src="../lumino/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src=../lumino/js/main.js"></script>
+===============================================================================================
+	<script src="../lumino/js/main.js"></script>-->
 
 </body>
 </html>

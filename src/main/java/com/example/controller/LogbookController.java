@@ -500,7 +500,7 @@ public class LogbookController{
 				Long id = Long.parseLong(request.getParameter("id"));
 				Reminder reminder=logbook.reminderbyid(id);
 				List<Reminder> reminders= logbook.viewremider();
-				ModelAndView mv = new ModelAndView("reminder");
+				ModelAndView mv = new ModelAndView("addremider");
 				mv.addObject("update_reminder", reminder);
 				mv.addObject("reminder_list", reminders);
 				mv.addObject("Heading", "Update Reminder");
