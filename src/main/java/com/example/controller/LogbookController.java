@@ -308,9 +308,7 @@ public class LogbookController{
 				//Filter Method
 				
 				String expense=logbook.totalExpenseFilterRecord(date1, date2, username, active);
-				
-				Double total1=Double.parseDouble(expense);
-				
+			
 				String income=logbook.totalIncomeFilterRecords(date1, date2, username, active, payment);
 				int size= logbook.filtersize(date1, date2, username, active);
 				System.out.println("list size"+size);
@@ -318,8 +316,13 @@ public class LogbookController{
 				
 				System.out.println("List size"+size);
 				System.out.println("Total INcome filter record"+income);
+				Double totalexpense=0.0;
+				try {
+					Double total1=Double.parseDouble(expense);
+					
 				Double total2 = Double.parseDouble(income);
-				Double totalexpense= total1-total2;
+				 totalexpense= total1-total2;
+				}catch(Exception e){}
 				ModelAndView mv = new ModelAndView("welcome");
 				mv.addObject("get_records", recordlist);
 				mv.addObject("login_message", username);

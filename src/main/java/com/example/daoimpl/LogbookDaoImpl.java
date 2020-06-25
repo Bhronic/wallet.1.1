@@ -112,7 +112,7 @@ public class LogbookDaoImpl implements LogbookDao {
 	public String totalExpenseCrurrentMonth(String user, int active, int currentmonth) {
 	
 		String expense=recordrepo.totalExpenseCrurrentMonth(user, active, currentmonth);
-		double total1 ,total2,totalexpense=0;
+		double total1=0 ,total2=0,totalexpense=0;
 		try {
 		total1= Double.parseDouble(expense);
 	
@@ -120,8 +120,9 @@ public class LogbookDaoImpl implements LogbookDao {
 		String totalincome= recordrepo.calculateincomecurrentmonth(payment, user, active, currentmonth);	
 		
 		 total2=Double.parseDouble(totalincome);
-		 totalexpense= total1-total2;
+		 
 		}catch(Exception e) {}
+		totalexpense= total1-total2;
 		String expense1=Double.toString(totalexpense);
 		
 		return expense1;

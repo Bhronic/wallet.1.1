@@ -99,11 +99,43 @@
 
  <a  id="main" href="cards" >Manage Cards</a> <a href="reminders" class="notification"><span>Reminder</span><span class="badge">3</span></a>
  
-  <a  id="main" href="balance">Available Balance</a> 
+  <button  id="main" onclick="availablebalance()" style="background-color:white;">Available Balance</button	> 
   
   
  <a  id="main" href="report?username=<%=username%>">Monthly Report</a>
  </div>
+ 
+ <script>
+ function balance(){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function(){
+	    if (this.readyState == 4 && this.status == 200) {
+	    	document.getElementById("balance").innerHTML = this.responseText;
+	    }
+	    xhttp.open("GET", "balance.jsp", true);
+	    xhttp.send(); 
+	}
+ }
+ </script>
+ <script>
+ function availablebalance(){
+	 var x = "balance";
+		document.getElementById("balance").innerHTML=x;
+
+	<!--LogbookDao logbook = new LogbookDaoImpl();
+	
+	var username = session.getAttribute("username");
+	var currentmonth = logbook.getCurrentmonth();
+	var totalexpenseincome = logbook.totalexpense(username, 0);
+	var totalincome= logbook.calculateincome("income", username, 0);
+	var expense = logbook.totalExpenseCrurrentMonth(username, 0, currentmonth);
+	var availablebalance = totalincome-(totalexpenseincome-totalincome);-->
+
+	 }
+ </script>
+
+<h1 id="balance" style="color:white;"></h1>
+
 
 		<div class="map">
 		
@@ -126,14 +158,15 @@
 <input type="hidden" name="page" value="1">
 <div class="welcome">
 <h1>
- Welcome ${login_message }  </br>
+ Welcome ${login_message }  <br>
  ${record_message }
 
 </h1>
-</br>
+<br>
 <div class="expense">
+
 <h3>
-Total Expense is ${total_expense}  ${ available_balance}
+Total Expense is ${total_expense}  
 
 
 </h3>
@@ -158,19 +191,6 @@ Total Expense is ${total_expense}  ${ available_balance}
 	<script src="../lumino/js/easypiechart-data.js"></script>
 	<script src="../lumino/js/bootstrap-datepicker.js"></script>
 	<script src="../lumino/js/custom.js"></script>
-	<script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script>
-		
-
 
 
 
@@ -204,9 +224,21 @@ Total Expense is ${total_expense}  ${ available_balance}
 								<td class="column100 column3" data-column="column3">${record.payment }</td>
 								<td class="column100 column4" data-column="column4">${record.amount }</td>
 								<td class="column100 column5" data-column="column5">${record.description }</td>
+								
 								<td class="column100 column6" data-column="column6"><a href="recorduptodate?username=<%=username%>&id=${record.id }">Update</a></td>
-								<td class="column100 column7" data-column="column7"><a href="deleterecord?username=<%=username%>&id=${record.id }&date=${record.date}&payment=${record.payment}&amount=${record.amount}&description=${record.description}">Delete</a></td>
-							
+								<td class="column100 column7" data-column="column7"><a  href="deleterecord?username=<%=username%>&id=${record.id }&date=${record.date}&payment=${record.payment}&amount=${record.amount}&description=${record.description}">Delete</a></td>
+					<!--  		<td class="column100 column8" data-column="column8"><button onclick="deleterecord()">Delete</button>
+					 			<script>
+								function deleterecord(){
+									if(confirm("Confirm Delete?")){
+										location.href='deleterecord?&id=${record.id }&date=${record.date}&payment=${record.payment}&amount=${record.amount}&description=${record.description}';
+									}else{
+										
+									}
+								}
+								
+								</script>
+								</td> -->
 							</tr>
 
 			</c:forEach>

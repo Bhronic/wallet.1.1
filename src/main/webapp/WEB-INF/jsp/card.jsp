@@ -120,27 +120,40 @@
 		</div>
 
 <a href="addcard">Add New Card</a>
-</br></br>
+<br><br>
 
-<div class="card">
-<table><tr>
-<td><c:forEach var="list" items="${cardlist }">
-<tr><td>${list.mastervisa}</td></tr>
+<div class="cardpannel"> 
+<div class="panel panel-container">
 
-<tr><td>${ list.number} </td></tr>
-</br>
-<tr><td>${list.debitcredit }    &nbsp &nbsp ${list.expiry}</td></tr>
-</br>
-<tr><td>${list.name } &nbsp &nbsp ${list.cvv }</td></tr>
-<tr><td><a href="deletecard?id=${list.id }">Delete</a></td></tr>
-</c:forEach></td></tr>
-
-</table>
-
+			<div class="row">
+			<c:forEach var="list" items="${cardlist }"><div class="cardlist">
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+				
+					<div class="panel panel-teal panel-widget border-right">
+						<div class="row no-padding">
+							<div > ${list.mastervisa}<br>
+							<br>
+							${ list.number}
+							<br><br>
+							${list.debitcredit }    &nbsp &nbsp ${list.expiry}
+							<br><br>
+							${list.name } &nbsp &nbsp ${list.cvv }
+							<br><br>
+							<a href="deletecard?id=${list.id }">Delete</a>
+							</div>
+							<div ></div>
+							<div ></div>
+						</div>
+					</div>
+				</div></div>	
+					</c:forEach>
+				</div>
+			
+				</div>
+			
 </div>
 
 
-</div>
 
 <!--===============================================================================================-->	
 	<script src="../Table/vendor/jquery/jquery-3.2.1.min.js"></script>

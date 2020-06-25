@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class ViewController {
 		session.setAttribute("size", size);
 		System.out.println("List size"+size);
 		String expense = logbook.totalExpenseCrurrentMonth(username, 0, currentmonth);
+		System.out.print(expense);
 		ModelAndView mv = new ModelAndView("welcome");
 		
 		
@@ -257,6 +259,11 @@ public class ViewController {
 		
 		return mv;
 	}
-	
+	@RequestMapping("/addreminder")
+	public ModelAndView addreminder()
+	{
+		ModelAndView mv = new ModelAndView("addremider");
+		return mv;
+	}
 
 }

@@ -16,10 +16,12 @@ public class CanvasjsChartDaoImpl implements CanvasjsChartDao {
 
 	
 	@Override
-	public List<List<Map<Object, Object>>> getCanvasjsChartData(String may,String June ,String July,String August) {
+	public List<List<Map<Object, Object>>> getCanvasjsChartData(String jan ,String feb,String march,String april,String may,String June ,String July,String August,String Sept,String Oct,String Nov ,String Dec) {
+		
 		CanvasjsChartData data = new CanvasjsChartData();
 		
-;		List<List<Map<Object, Object>>> datalist=	data.getCanvasjsDataList(may,June,July,August);
+		List<List<Map<Object, Object>>> datalist=	data.getCanvasjsDataList( jan , feb, march, april, may, June , July, August, Sept, Oct, Nov , Dec);
+			
 		return datalist;
 	}
 

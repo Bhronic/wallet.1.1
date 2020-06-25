@@ -24,8 +24,8 @@ public class CanvasjsChartServiceImpl implements CanvasjsChartService {
 	}
  
 	@Override
-	public List<List<Map<Object, Object>>> getCanvasjsChartData(String May,String June ,String July,String August) {
-		return canvasjsChartDao.getCanvasjsChartData(May,June,July,August);
+	public List<List<Map<Object, Object>>> getCanvasjsChartData(String jan ,String feb,String march,String april,String may,String June ,String July,String August,String Sept,String Oct,String Nov ,String Dec) {
+		return canvasjsChartDao.getCanvasjsChartData(jan,feb,march,april,may,June,July,August,Sept,Oct,Nov,Dec);
 	}
  
 }                        

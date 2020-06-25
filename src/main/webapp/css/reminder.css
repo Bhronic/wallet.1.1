@@ -1,7 +1,7 @@
 table,td,th{
 	border-collapse:collapse;
-	border: 1px solid #ddd;
-	padding:5px;
+
+
 	    border-collapse:separate;
   
     border-radius:6px;
@@ -17,12 +17,15 @@ table,td,th{
 }
 
 #list{
-	margin-left:0px;
-margin-top:-250px;
-width:20%;
+	margin-left:0px;:
+margin-top:0px;
+width:100%;
 	
 }
 
 #save{
-	trxt-align:center;
+	text-align:center;
+}
+.list1{
+	margin-left:-100px;
 }

@@ -4,7 +4,7 @@ import java.util.Map;
 
 public interface CanvasjsChartDao {
 	 
-	List<List<Map<Object, Object>>> getCanvasjsChartData(String May,String June ,String July,String August);
+	List<List<Map<Object, Object>>> getCanvasjsChartData(String jan ,String feb,String march,String april,String may,String June ,String July,String August,String Sept,String Oct,String Nov ,String Dec);
 	
 	public void adddatapoints();
  

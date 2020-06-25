@@ -16,11 +16,11 @@
 <body>
 
     <div class="main">
- <h2>
+ <h3>
 ${registration_message}
 ${logout_message }
 ${error_message }
-</h2>
+</h3>
  <!-- Sing in  Form -->
         <section class="sign-in">
             <div class="container">
@@ -36,11 +36,11 @@ ${error_message }
                         <input type="hidden" name="page" value="1">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="username" id="your_name" placeholder="Your Name"/>
+                                <input type="text" name="username" id="your_name" placeholder="Your Name" required />
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="your_pass" placeholder="Password"/>
+                                <input type="password" name="password" id="your_pass" placeholder="Password" required/>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />

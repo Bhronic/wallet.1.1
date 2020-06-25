@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +8,7 @@
 	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Reminder</title>
+	<title>ADD</title>
 	<link href="../lumino/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../lumino/css/font-awesome.min.css" rel="stylesheet">
 	<link href="../lumino/css/datepicker3.css" rel="stylesheet">
@@ -36,14 +35,13 @@
 
 	<link rel="stylesheet" type="text/css" href="../css/welcome.css">
 	<link rel="stylesheet" type="text/css" href="../css/add.css">
-<link rel="stylesheet" type="text/css" href="../css/reminder.css"/>
+	
 
 </head>
 <body>
 
-
-
 <% String username = request.getParameter("username"); %>
+<input type="hidden" name="username" value=<%=username %>>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -69,24 +67,32 @@
 						
 						</ul>
 					</li>
-						<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-						<em class="fa fa-bell"></em><span class="label label-info">${Notification }</span>
+					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+						<em class="fa fa-bell"></em><span class="label label-info">5</span>
 					</a>
 						<ul class="dropdown-menu dropdown-alerts">
-							<li>
-									<h4>Reminders :- </h4></br>
-									<c:forEach var="list" items="${bell }">
-									
-								<a class ="reminders" href="reminders">${list }</a></br>
-									</c:forEach>
-									
-							</li>
+							<li><a href="#">
+								<div><em class="fa fa-envelope"></em> 1 New Message
+									<span class="pull-right text-muted small">3 mins ago</span></div>
+							</a></li>
+							<li class="divider"></li>
+							<li><a href="#">
+								<div><em class="fa fa-heart"></em> 12 New Likes
+									<span class="pull-right text-muted small">4 mins ago</span></div>
+							</a></li>
+							<li class="divider"></li>
+							<li><a href="#">
+								<div><em class="fa fa-user"></em> 5 New Followers
+									<span class="pull-right text-muted small">4 mins ago</span></div>
+							</a></li>
 						</ul>
 					</li>
 				</ul>
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
+
+		
 
 		
 		<div class="main">
@@ -97,61 +103,47 @@
 
  <a  id="main" href="cards" >Manage Cards</a> <a href="reminders" class="notification"><span>Reminder</span><span class="badge">3</span></a>
  
-  <a  id="main" href="balance">Available Balance</a> 
+  <a  id="main" href="balance?username=<%=username%>">Available Balance</a> 
   
   
  <a  id="main" href="report?username=<%=username%>">Monthly Report</a>
- </div>
-
+ 
 		<div class="map">
 		
 		
 		<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<ol class="breadcrumb">
-				<li><a href="#">
+				<li><a href="Home">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">Reminders</li>
+				<li class="active">ADD</li>
 			</ol>
 		</div><!--/.row-->
 		</div>
 		</div>
-			
-	<a href="addreminder">Create Reminder</a>
 
- Reminders
- 
-<table id="list1"> 
-<tr>
-<c:forEach var="list" items="${reminder_list}">
-<td>
+</div>
+	<form action="savereminder" method="GET">
+<input type="hidden" name="id" value="${id }">
+<table id="create">
 
-<tr><td>Name : ${list.name }</td></tr>
-<tr><td>Date : ${list.date }</td></tr>
-<tr><td>Time : ${list.time }</td></tr>
-<tr><td>Description : ${list.description }</td></tr>
-<tr><td><a href="updatereminder?id=${list.id }">Update</a> <a href="deletereminder?id=${list.id }">Delete</a></td></tr>
-</td>
-</c:forEach>
 
-</tr>
+
+<tr><th>${Heading }</th></tr>
+<tr><td>Name:- <input type="text" name="name" value="${update_reminder.name }"></td></tr>
+
+<tr><td>Date:- <input type="date" name="date" value="${update_reminder.date }">  &nbsp 	 Time:- <input type="time" name="time" value="${update_reminder.time }"></td></tr>
+
+<tr><td>Description:- </br></td></tr>
+<tr><td><textarea name="description" rows="4" cols="50">${update_reminder.description}</textarea></td></tr>
+
+
+
+<tr id="save"><td><input type="submit" value="SAVE"> </td></tr>
+
+
 </table>
-
-
-
-
-
-<!--===============================================================================================-->	
-	<script src="../Table/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="../Table/vendor/bootstrap/js/popper.js"></script>
-	<script src="../Table/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="../lumino/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src=../lumino/js/main.js"></script>
-
-
+</form>
 </body>
 </html>
