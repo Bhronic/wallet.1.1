@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+            <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,57 +52,36 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span></button>
-				<p class="navbar-brand" href="#"><span>Wallet  </span>  Management</p>
+				<p class="navbar-brand" ><span>Wallet  </span>  Management</p>
 				<ul class="nav navbar-top-links navbar-right">
 					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-						<em class="fa fa-envelope"></em><span class="label label-danger">15</span>
+						<em class="fa fa-lock"></em>
 					</a>
 						<ul class="dropdown-menu dropdown-messages">
 							<li>
-								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
-									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
-									</a>
-									<div class="message-body"><small class="pull-right">3 mins ago</small>
-										<a href="#"><strong>John Doe</strong> commented on <strong>your photo</strong>.</a>
-									<br /><small class="text-muted">1:24 pm - 25/03/2015</small></div>
+								<div class="dropdown-messages-box">
 								</div>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
-									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
-									</a>
-									<div class="message-body"><small class="pull-right">1 hour ago</small>
-										<a href="#">New message from <strong>Jane Doe</strong>.</a>
-									<br /><small class="text-muted">12:27 pm - 25/03/2015</small></div>
-								</div>
+								<div class="dropdown-messages-box">
+								 <a  id="signout" href="logout?username=<%=username%>">SignOut</a></div>
 							</li>
-							<li class="divider"></li>
-							<li>
-								<div class="all-button"><a href="#">
-									<em class="fa fa-inbox"></em> <strong>All Messages</strong>
-								</a></div>
-							</li>
+						
 						</ul>
 					</li>
 					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-						<em class="fa fa-bell"></em><span class="label label-info">5</span>
+						<em class="fa fa-bell"></em><span class="label label-info">${Notification }</span>
 					</a>
 						<ul class="dropdown-menu dropdown-alerts">
-							<li><a href="#">
-								<div><em class="fa fa-envelope"></em> 1 New Message
-									<span class="pull-right text-muted small">3 mins ago</span></div>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">
-								<div><em class="fa fa-heart"></em> 12 New Likes
-									<span class="pull-right text-muted small">4 mins ago</span></div>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">
-								<div><em class="fa fa-user"></em> 5 New Followers
-									<span class="pull-right text-muted small">4 mins ago</span></div>
-							</a></li>
+							<li>
+									<h4>Reminders :- </h4><br>
+									<c:forEach var="list" items="${bell }">
+									
+								<a class ="reminders" href="reminders">${list }</a><br>
+									</c:forEach>
+									
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -141,14 +121,16 @@
 
 </div>
 <div class="addrecord">
-<form action="addRecord" method="get">
+<form action="method_update" method="get">
+<input type="hidden" name="id" value="${updatelist.id }">
 <table>
 <tr><th>Update Record</th></tr>
 <tr><td> <div> <em class="fa fa-calendar"></em> Date : 
-<input type="date" name="date"></div></td></tr>
-</br>
+<input type="date" name="date" value="${updatelist.date }"></div></td></tr>
+
 <tr><td><div> <em class="fa fa-credit-card"></em>
 Payment: <select id="payment" name="payment">
+  <option >${updatelist.payment }</option>
   <option value="Cash">Cash</option>
   <option value="Credit Card">Credit Card</option>
   <option value="Debit Card">Debit Card</option>
@@ -157,10 +139,10 @@ Payment: <select id="payment" name="payment">
 </select></div></td></tr>
 <tr><td>
 <div><em class="fa fa-money"></em>
-Amount: <input type="text" name="amount"><br>
+Amount: <input type="text" name="amount" value="${updatelist.amount }"><br>
 </div></td></tr>
 <tr><td><div><em class="fa fa-comments"></em>
-Description: <input type="text" size="15" name="description"><br>
+Description: <input type="text" size="15" name="description" value="${updatelist.description }"><br>
 </div></td></tr>
 
 
@@ -183,17 +165,6 @@ Description: <input type="text" size="15" name="description"><br>
 	<script src="../lumino/js/easypiechart-data.js"></script>
 	<script src="../lumino/js/bootstrap-datepicker.js"></script>
 	<script src="../lumino/js/custom.js"></script>
-	<script>
-		window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
-	</script>
 
 </body>
 

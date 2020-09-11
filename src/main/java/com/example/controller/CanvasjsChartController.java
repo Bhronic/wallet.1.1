@@ -121,7 +121,8 @@ public class CanvasjsChartController {
 		
 		
 		String	 july=logbook.totalExpenseFilterRecord("2020-07-01","2020-07-31" ,user,0);
-		String   julyincome=logbook.totalIncomeFilterRecords("2020-06-01","2020-06-31", user, 0, payment);
+		String   julyincome=logbook.totalIncomeFilterRecords("2020-07-01","2020-07-31", user, 0, payment);
+		
 		try {
 		Double julyagain = Double.parseDouble(july);
 		Double julyincomeagain = Double.parseDouble(julyincome);
@@ -129,6 +130,7 @@ public class CanvasjsChartController {
 		july= julyfinal.toString();
 		}catch(Exception e) {}
 		System.out.println("july"+july);
+		
 		
 		String	 august=logbook.totalExpenseFilterRecord("2020-08-01","2020-08-31" ,user,0);
 		String   augustincome=logbook.totalIncomeFilterRecords("2020-08-01","2020-08-31", user, 0, "income");
@@ -140,6 +142,7 @@ public class CanvasjsChartController {
 		}catch(Exception e) {}
 		System.out.println("August"+august);
 		
+		
 		String	 sept=logbook.totalExpenseFilterRecord("2020-09-01","2020-09-30" ,user,0);
 		String   septincome=logbook.totalIncomeFilterRecords("2020-09-01","2020-09-30", user, 0, "income");
 		try {
@@ -149,6 +152,7 @@ public class CanvasjsChartController {
 		august= septfinal.toString();
 		}catch(Exception e) {}
 		System.out.println("Sept"+sept);
+		
 		
 		String	 oct=logbook.totalExpenseFilterRecord("2020-10-01","2020-10-31" ,user,0);
 		String   octincome=logbook.totalIncomeFilterRecords("2020-10-01","2020-10-31", user, 0, "income");
@@ -243,8 +247,8 @@ public class CanvasjsChartController {
 	
 		String tecm1 = logbook.totalExpenseCrurrentMonth(user, active, currentmonth);
 		System.out.println("currentmonth"+currentmonth+" "+tecm1);
-		currentmonth=currentmonth-1;
-		String tecm = logbook.totalExpenseCrurrentMonth(user, active, currentmonth);
+		int lastmonth=currentmonth-1;
+		String tecm = logbook.totalExpenseCrurrentMonth(user, active, lastmonth);
 		System.out.println("lastmonth"+currentmonth+" "+tecm);
 		Double tecmddouble1 = Double.parseDouble(tecm1);
 		Double tecmddouble = Double.parseDouble(tecm);

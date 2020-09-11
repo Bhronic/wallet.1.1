@@ -3,15 +3,22 @@ body{
 	  background-color: #212529;
 	  
 }
+#SearchInput{
+	width:150px;
+	height:20px;
+	color:black;
+	font-weight:500;
+}
 
 div.main{
-	margin-left:280px;
+
 	margin-top: -80px;
+	text-align:center;
 }
 
 div.map{
 	margin-top:100px;
-	margin-left:-270px;
+	margin-left:-400px;
 }
 
 div.welcome{
@@ -101,6 +108,7 @@ button:hover {
 .limiter {
   width: 100%;
   margin: 0 auto;
+  margin-top:-20px;
 }
 
 .container-table100 {
@@ -198,7 +206,7 @@ th, td {
 .notification .badge {
   position: absolute;
   top:0px;
-  right:;
+ 
   padding: 5px 10px;
   border-radius: 50%;
   background-color: white;

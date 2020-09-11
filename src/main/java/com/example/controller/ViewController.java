@@ -1,9 +1,11 @@
 package com.example.controller;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,8 +40,14 @@ public class ViewController {
 		System.out.println("list size"+size);
 		session.setAttribute("size", size);
 		System.out.println("List size"+size);
-		String expense = logbook.totalExpenseCrurrentMonth(username, 0, currentmonth);
+		Double expense = Double.parseDouble(logbook.totalExpenseCrurrentMonth(username, 0, currentmonth));
 		System.out.print(expense);
+		
+		//Number Formatting 
+		NumberFormat indiaFormat = NumberFormat.getCurrencyInstance(new Locale("en", "IN")); 	
+	       String india = indiaFormat.format(expense);
+		
+		
 		ModelAndView mv = new ModelAndView("welcome");
 		
 		
@@ -67,7 +75,7 @@ public class ViewController {
 		
 		mv.addObject("get_records", recordlist);
 		mv.addObject("login_message", " "+username);
-		mv.addObject("total_expense", expense);
+		mv.addObject("total_expense", india);
 		
 	return mv;	
 	}
@@ -188,18 +196,28 @@ public class ViewController {
 
 	List<Logbook> recordlist = logbook.findByUserAndActive( username,lg.getActive(),currentmonth,1);
 	
-	String expense = logbook.totalExpenseCrurrentMonth(username, lg.getActive(), currentmonth);
+		String expense = logbook.totalExpenseCrurrentMonth(username, lg.getActive(), currentmonth);
+		double currentMonthExpense= Double.parseDouble(expense);
 		double total2=Double.parseDouble(totalincome);
 		System.out.println("Total Income"+total2);
 		Double totalexpense= total1-total2;
 		System.out.println("Total Expense"+totalexpense);
 		Double availablebalance = total2-totalexpense;
+		
+		//Number Formatting 
+		NumberFormat indiaFormat = NumberFormat.getCurrencyInstance(new Locale("en", "IN")); 	
+		String currentbalance = indiaFormat.format(availablebalance);
+		String currentexpense=indiaFormat.format(currentMonthExpense);
+				
+		
+		
+		
 		System.out.print("Availble Blanace"+availablebalance);
 		ModelAndView mv = new ModelAndView("welcome");
 		mv.addObject("get_records", recordlist);
 		mv.addObject("login_message", " "+username);
-		mv.addObject("total_expense", expense);
-		mv.addObject("available_balance", " Current Balance is "+availablebalance);
+		mv.addObject("total_expense", currentexpense);
+		mv.addObject("available_balance", " Current Balance is "+currentbalance);
 		
 		//notification
 		List<Reminder> timelist=logbook.getreminderobjects();

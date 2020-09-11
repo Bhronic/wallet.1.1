@@ -42,25 +42,46 @@
 	<link rel="stylesheet" type="text/css" href="../css/welcome.css">
 <meta charset="ISO-8859-1">
 <title>Welcome</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
-var x = "balance";
- function availablebalance(){
-	 console.log("Method in");
 
-	 document.getElementById("balance").innerHTML = x;}
-
-	<!--LogbookDao logbook = new LogbookDaoImpl();
 	
-	var username = session.getAttribute("username");
-	var currentmonth = logbook.getCurrentmonth();
-	var totalexpenseincome = logbook.totalexpense(username, 0);
-	var totalincome= logbook.calculateincome("income", username, 0);
-	var expense = logbook.totalExpenseCrurrentMonth(username, 0, currentmonth);
-	var availablebalance = totalincome-(totalexpenseincome-totalincome);-->
-
+	<!--JavaScript Ajax -->
+	
+	function display(){
+		
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		     document.getElementById("Showbalance").innerHTML = this.responseText;
+		    }
+		  };
+		  xhttp.open("GET", "../balance.jsp", true);
+		  xhttp.send();
+		}
 	 
- </script>
+
+	 <!-- jQuerry Ajax -->
+	 
+$(document).ready(function(){
+$("#balance").click(function(){
+	$("#Showbalance").load("../balance.jsp").toggle();
+	});
+
+});
+
+
+$(document).ready(function(){
+	$("#SearchInput").on("keyup",function(){
+		var value = $(this).val().toLowerCase();
+		$("#tablebody tr").filter(function(){
+			$(this).toggle($(this).text().toLowerCase().indexOf(value)>-1)
+		});
+	});
+});
+
+</script>
 
 </head>
 <body>
@@ -109,7 +130,9 @@ var x = "balance";
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
-
+<script>
+ 
+ </script>
 		
 		<div class="main">
 		
@@ -119,30 +142,20 @@ var x = "balance";
 
  <a  id="main" href="cards" >Manage Cards</a> <a href="reminders" class="notification"><span>Reminder</span><span class="badge">3</span></a>
  
- <!--   <button   onclick="display()" style="background-color:white;">Available Balance</button	> -->
+ <!--   <button   id="balance" style="background-color:white;">Available Balance</button	> 
+   
+    <button    onclick="display()" style="background-color:white;">Available Balance JS</button> -->
  
  <a id ="main" href="balance">Available Balance</a>
   
   
  <a  id="main" href="report?username=<%=username%>">Monthly Report</a>
- </div>
+ </div> 
  
- <script>
- function display(){
-	
-	  var xhttp = new XMLHttpRequest();
-	  xhttp.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
-	     document.getElementById("balance").innerHTML = this.responseText;
-	    }
-	  };
-	  xhttp.open("GET", "balance.jsp", true);
-	  xhttp.send();
-	}
- }
- </script>
  
-<h1 id="balance" style="color:white;"> </h1>
+ 
+ 
+ 
 
 
 		<div class="map">
@@ -173,10 +186,12 @@ var x = "balance";
 <br>
 <div class="expense">
 
+<h3 id="Showbalance">
 <h3>
 Total Expense is ${total_expense}  
 ${available_balance }
 
+</h3>
 </h3>
 </div>
 </div>
@@ -203,6 +218,7 @@ ${available_balance }
 
 
 <form action="get_filter" method="get">
+<input id="SearchInput" type="text" placeholder="Search Record...">
 <input type="hidden" name="page" value="1">
 <div class="input"><input type="date" name="date1" value="DAte"> <span class="to">TO</span> <input type="date" name="date2"> <input type="submit" value="Search">
    </div>
@@ -224,7 +240,7 @@ ${available_balance }
 							
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="tablebody">
 						<c:forEach var="record"  items="${get_records}">
 							<tr class="row100">
 								<td class="column100 column1" data-column="column1">${record.id }</td>
@@ -233,7 +249,7 @@ ${available_balance }
 								<td class="column100 column4" data-column="column4">${record.amount }</td>
 								<td class="column100 column5" data-column="column5">${record.description }</td>
 								
-								<td class="column100 column6" data-column="column6"><a href="recorduptodate?username=<%=username%>&id=${record.id }">Update</a></td>
+								<td class="column100 column6" data-column="column6"><a href="recorduptodate?id=${record.id }">Update</a></td>
 								<td class="column100 column7" data-column="column7"><a  href="deleterecord?username=<%=username%>&id=${record.id }&date=${record.date}&payment=${record.payment}&amount=${record.amount}&description=${record.description}">Delete</a></td>
 					<!--  		<td class="column100 column8" data-column="column8"><button onclick="deleterecord()">Delete</button>
 					 			<script>

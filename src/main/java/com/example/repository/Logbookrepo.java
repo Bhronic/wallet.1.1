@@ -47,5 +47,6 @@ public interface Logbookrepo extends JpaRepository<Logbook, Long> {
 	@Query("SELECT SUM(amount)FROM Logbook   WHERE  date  BETWEEN   :date1 AND  :date2  AND (user like :user) AND (active like :active) AND (payment like :payment) ORDER BY date DESC")
 	public String totalIncomeFilterRecord(@Param("date1") String date1 , @Param("date2") String date2 , @Param("user") String user,@Param("active") int active,@Param("payment") String payment);
 	
+	public Logbook findByid(Long id);
 
 }

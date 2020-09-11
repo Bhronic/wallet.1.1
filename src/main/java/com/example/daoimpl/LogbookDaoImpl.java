@@ -1,11 +1,13 @@
 package com.example.daoimpl;
 
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.transaction.Transactional;
 
@@ -45,7 +47,6 @@ public class LogbookDaoImpl implements LogbookDao {
 	@Override
 	public Logbook saverecord(Logbook record) {
 		
-			
 			return recordrepo.saveAndFlush(record);
 	
 			
@@ -123,9 +124,10 @@ public class LogbookDaoImpl implements LogbookDao {
 		 
 		}catch(Exception e) {}
 		totalexpense= total1-total2;
-		String expense1=Double.toString(totalexpense);
-		
-		return expense1;
+		String currentexpense = Double.toString(totalexpense);
+	       NumberFormat indiaFormat = NumberFormat.getCurrencyInstance(new Locale("en", "IN")); 	
+	       String india = indiaFormat.format(totalexpense);
+		return currentexpense;
 	}
 
 
@@ -294,6 +296,14 @@ public class LogbookDaoImpl implements LogbookDao {
 			
 		}
 		
+	}
+
+
+
+	@Override
+	public Logbook recordbyid(Long id) {
+		// TODO Auto-generated method stub
+		return recordrepo.findByid(id);
 	}
 	}
 

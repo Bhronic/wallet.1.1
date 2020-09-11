@@ -54,4 +54,6 @@ public interface LogbookService {
 	
 	public void getnotification();
 	
+	public  Logbook  recordbyid(Long id);
+	
 }

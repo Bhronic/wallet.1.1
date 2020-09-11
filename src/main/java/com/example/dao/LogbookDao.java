@@ -53,4 +53,6 @@ public interface LogbookDao {
 	public int filtersize( String date1, String date2,String user,Integer active);
 	
 	public void getnotification();
+	
+	public  Logbook  recordbyid(Long id);
 }

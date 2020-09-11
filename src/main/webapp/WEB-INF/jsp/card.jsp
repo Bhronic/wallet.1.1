@@ -122,36 +122,38 @@
 <a href="addcard">Add New Card</a>
 <br><br>
 
-<div class="cardpannel"> 
-<div class="panel panel-container">
-
-			<div class="row">
-			<c:forEach var="list" items="${cardlist }"><div class="cardlist">
-				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+<div class="card-columns" style="width:800px; margin-left:50px;"> 
+			<c:forEach var="list" items="${cardlist }">
+		
+				<div class="card bg-light ">
+				<div class="card-body text-left">
 				
-					<div class="panel panel-teal panel-widget border-right">
-						<div class="row no-padding">
-							<div > ${list.mastervisa}<br>
-							<br>
-							${ list.number}
-							<br><br>
-							${list.debitcredit }    &nbsp &nbsp ${list.expiry}
-							<br><br>
-							${list.name } &nbsp &nbsp ${list.cvv }
-							<br><br>
-							<a href="deletecard?id=${list.id }">Delete</a>
-							</div>
-							<div ></div>
-							<div ></div>
+					<h4 class="card-title"> ${list.mastervisa}</h4>
+						
+						<br>
+						
+						<p class="card-text">${ list.number}</p>
+						
+						<br>
+						
+							
+					<p class="card-text">		${list.debitcredit }    &nbsp &nbsp ${list.expiry}</p>
+					
+					<br>
+						
+					<p class="card-text">		${list.name } &nbsp &nbsp ${list.cvv } </p>
+					
+						<br>
+					<p class="card-text">		<a href="deletecard?id=${list.id }"  class="card-link">Delete</a></p>
+							
+						
 						</div>
-					</div>
-				</div></div>	
+				</div>
+					
 					</c:forEach>
 				</div>
 			
-				</div>
-			
-</div>
+				
 
 
 

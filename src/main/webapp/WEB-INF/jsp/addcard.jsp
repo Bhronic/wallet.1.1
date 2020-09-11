@@ -128,18 +128,18 @@
 
 <table>
 <tr><td>NAME:
-<input type="text" name="name"></td></tr>
+<input type="text" name="name" placeholder="Name on Card" required></td></tr>
 
 <tr><td><input type="radio" name="radio" value="CREDIT">  <label for="credit">Credit</label>  Debit:<input type="radio" name="radio" value="DEBIT"></td></tr>
 
-<tr><td>CARD NUMBER: <input type="text" name="number"></td></tr>
+<tr><td>CARD NUMBER: <input type="text" name="number" required></td></tr>
 
-<tr><td>EXPIRY DATE: <input type="text" name="expiry" value="MM/YYYY"></td></tr>
+<tr><td>EXPIRY DATE: <input type="text" name="expiry" placeholder="MM/YYYY" required></td></tr>
 
 
-<tr><td>MasterCard: <input type="checkbox" name="checkbox" value="MASTER CARD">  VisaCard:<input type="checkbox" name="checkbox" value="VISA CARD"></td></tr>
+<tr><td>MasterCard: <input type="checkbox" name="checkbox" value="MASTER CARD" >  VisaCard:<input type="checkbox" name="checkbox" value="VISA CARD"></td></tr>
 
-<tr><td>CVV: <input type="password" name="cvv"></td></tr>
+<tr><td>CVV: <input type="password" name="cvv" ></td></tr>
 
 <tr><td><input type="submit" value="SAVE"></td></tr>
 

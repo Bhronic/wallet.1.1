@@ -204,4 +204,12 @@ public class LogbookServiceImpl implements LogbookService {
 		logbookdao.getnotification();
 	}
 
+
+
+	@Override
+	public  Logbook  recordbyid(Long id) {
+		// TODO Auto-generated method stub
+		return logbookdao.recordbyid(id);
+	}
+
 }

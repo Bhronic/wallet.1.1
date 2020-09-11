@@ -136,9 +136,12 @@ public class LogbookController{
 	
 		
 		@RequestMapping(value="/recorduptodate")
-		public ModelAndView get_update()
+		public ModelAndView get_update(@RequestParam Long id)
 		{
 		ModelAndView mv = new ModelAndView("update");
+		
+		Logbook updatelist= logbook.recordbyid(id);
+		mv.addObject("updatelist", updatelist);
 		return mv;
 		}
 
@@ -146,13 +149,15 @@ public class LogbookController{
 	
 			@Transactional
 			@RequestMapping(value="method_update")
-			public ModelAndView update_method(HttpServletRequest request, HttpServletResponse response){
+			public ModelAndView update_method(@RequestParam Long id,HttpServletRequest request, HttpServletResponse response){
 			Logbook lg = new Logbook();
 			Admin log= new Admin();
-			String username=request.getParameter("username");
+			HttpSession session = request.getSession();
+			String username=(String) session.getAttribute("username");
 			
 			//Update Record Method
-			lg.setId(Long.parseLong(request.getParameter("id")));
+			lg.setId(id);
+			System.out.print("IDDD"+lg.getId());
 			lg.setDate(request.getParameter("date"));
 			lg.setAmount(request.getParameter("amount"));
 			lg.setPayment(request.getParameter("payment"));
